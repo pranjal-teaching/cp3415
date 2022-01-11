@@ -11,16 +11,17 @@ def get_select_query_result(query):
                 for row in cursor:
                     result.append(row)
             except Exception as e:
-                print(f'{query} did not execute correctly.\nHere is the error info:\n{e}')
+                print(f'query failed. Error info:\n{e}')
     return result
 
 
 my_query = """SELECT 
     actor_id, first_name, last_name
 FROM
-    sakila.actor
+    sakila.actors
 WHERE
     first_name LIKE 'A%';"""
+
 actors = get_select_query_result(my_query)
 for actor in actors:
     print(actor)
