@@ -18,7 +18,7 @@ def get_select_query_result(query):
 my_query = """SELECT 
     actor_id, first_name, last_name
 FROM
-    sakila.actors
+    sakila.actor
 WHERE
     first_name LIKE 'A%';"""
 
