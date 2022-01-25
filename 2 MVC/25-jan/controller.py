@@ -24,12 +24,10 @@ def get_player_info(player_id):
     :return: (name, age)
     """
     # Use the get_rows() function
-    pass
+    query = f"SELECT * FROM fantastic_games.players WHERE player_id = {player_id}"
+    col_names, rows = get_rows(query)
+    return rows[0][1], rows[0][2]
 
 
 
-q1 = "SELECT * FROM fantastic_games.players;"
-col_names, rows = get_rows(q1)
-
-print(col_names)
-print(rows)
+print(get_player_info(1))
