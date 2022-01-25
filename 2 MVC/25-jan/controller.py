@@ -17,6 +17,17 @@ def get_rows(query):
             return column_names, rows
 
 
+def get_player_info(player_id):
+    """
+    returns player name and age as a tuple for any given player_id
+    :param player_id: id of the player
+    :return: (name, age)
+    """
+    # Use the get_rows() function
+    pass
+
+
+
 q1 = "SELECT * FROM fantastic_games.players;"
 col_names, rows = get_rows(q1)
 
