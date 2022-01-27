@@ -26,8 +26,10 @@ def get_player_info(player_id):
     # Use the get_rows() function
     query = f"SELECT * FROM fantastic_games.players WHERE player_id = {player_id}"
     col_names, rows = get_rows(query)
-    return rows[0][1], rows[0][2]
+    # print(rows)
+    # print(rows[0])
+    name = rows[0][1]
+    age = rows[0][2]
+    return name, age
 
 
-
-print(get_player_info(1))
