@@ -1,4 +1,5 @@
 from controller import *
+from prettytable import PrettyTable
 
 
 def display_options():
@@ -8,6 +9,7 @@ def display_options():
     print('4. Display All Games')
     print('5. Add NEW PLAYER')
     print('6. Add NEW GAME!')
+    # del player, del game
     print('0. Exit')
 
 
@@ -20,6 +22,7 @@ def main():
             player_name, player_age = get_player_info(player_id)
             print(f'Player Name = {player_name}\tPlayer Age: {player_age}')
         elif choice == 2:
+            pTable = PrettyTable()
             #
             # c = 0
             # q1 = 'SELECT * FROM fantastic_games.players'
@@ -31,6 +34,9 @@ def main():
 
             query_all_players = 'SELECT * FROM fantastic_games.players'
             col_names, rows = get_rows(query_all_players)
+            pTable.field_names = col_names
+            pTable.add_rows(rows)
+            print(pTable)
             print(col_names)
             for row in rows:
                 print(row)
