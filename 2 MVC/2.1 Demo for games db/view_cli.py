@@ -9,7 +9,8 @@ def display_options():
     print('4. Display All Games')
     print('5. Add NEW PLAYER')
     print('6. Add NEW GAME!')
-    # del player, del game
+    print('7. Delete Player')
+    print('8. Delete Game')
     print('0. Exit')
 
 
@@ -54,6 +55,11 @@ def main():
             name = input('Enter Player Name: ')
             age = int(input('Enter Player Age: '))
             add_new_player(name, age)
+        elif choice == 6:
+            game_name = input('Enter Game Name: ')
+            price = float(input('Price: '))
+            year = int(input('Year: '))
+            add_new_game(game_name, price, year)
         elif choice == 0:
             break
         input('Hit enter to continue\t')

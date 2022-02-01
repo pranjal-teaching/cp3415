@@ -49,8 +49,25 @@ def add_new_player(player_name: str, player_age: int):
         # Step 2: Create a cursor object
         with mysql_connection_object.cursor() as mysql_cursor:
             # Step 3: Create a query and execute
-            add_player_sql = f"INSERT INTO fantastic_games.players (player_name, player_age) VALUES ('{player_name}', {player_age})"
+            add_player_sql = f"INSERT INTO fantastic_games.players (player_name, player_age) " \
+                             f"VALUES ('{player_name}', {player_age})"
             mysql_cursor.execute(add_player_sql)
+            # Step 4: Commit changes
+            mysql_connection_object.commit()
+
+
+def add_new_game(game_name: str, game_price: float, game_year: int):
+    """
+    Adds a new row in the players table
+    """
+    # Step 1: Create Connection Object
+    with connect(host=host, user=user, password=password) as mysql_connection_object:
+        # Step 2: Create a cursor object
+        with mysql_connection_object.cursor() as mysql_cursor:
+            # Step 3: Create a query and execute
+            add_game_sql = f"INSERT INTO fantastic_games.game (game_name, price, year) VALUES " \
+                           f"('{game_name}', {game_price}, {game_year})"
+            mysql_cursor.execute(add_game_sql)
             # Step 4: Commit changes
             mysql_connection_object.commit()
 
